@@ -2,16 +2,38 @@
 
 # Part 1
 
-def sum arr
-  # YOUR CODE HERE
+def sum(arr)
+   total = 0
+   arr.each do |x| total += x
+ end
+  return total
+  return 0
 end
 
-def max_2_sum arr
-  # YOUR CODE HERE
+def max_2_sum(arr)
+  case arr.size
+  when 0
+    return 0
+  when 1
+    return arr[0]
+  when 2
+    arr[0] + arr[2]
+  else 
+    larger = arr.max
+    arr.delete_at(arr.index larger)
+    larger + arr.max
+  end
+    
+  
 end
 
-def sum_to_n? arr, n
-  # YOUR CODE HERE
+def sum_to_n?(arr, n)
+  if arr.empty?
+    false
+  else
+    arr.permutation(2).any? {|x| x[0] + x[1] == n}
+  end
+  
 end
 
 # Part 2
